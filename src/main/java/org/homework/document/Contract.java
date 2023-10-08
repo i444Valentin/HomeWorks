@@ -1,6 +1,7 @@
 package org.homework.document;
 
 import org.homework.annotations.RequiredPosition;
+import org.homework.base_enum.Position;
 import org.homework.document.operations.Deletable;
 import org.homework.employee.Employee;
 
@@ -18,14 +19,17 @@ public class Contract implements Deletable {
     private Boolean isDeleted = false;
 
 
-    public Contract(Long id, String position, String level, Long salary, Employee employee, LocalDate attemptDate, Employee hirer) {
+    public Contract(Long id, String position, String level, Long salary, Employee employee, LocalDate attemptDate, Employee hirer) throws NoSuchFieldException {
         this.id = id;
         this.position = position;
         this.level = level;
         this.salary = salary;
         this.employee = employee;
         this.attemptDate = attemptDate;
-        this.hirer = hirer;
+        if (hirer.getPosition().equals(this.getClass().getDeclaredField("hirer").getAnnotation(RequiredPosition.class).value())){
+            this.hirer = hirer;
+        }else throw new RuntimeException("Для созздания договора работник должен являться работодателем.");
+
     }
 
     public Long getId() {
