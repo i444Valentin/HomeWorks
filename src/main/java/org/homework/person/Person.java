@@ -72,4 +72,16 @@ public class Person {
     public void setPassport(Passport passport) {
         this.passport = passport;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender=" + gender +
+                ", birthDate=" + birthDate +
+                ", passport=" + passport +
+                '}';
+    }
 }

@@ -13,13 +13,12 @@ public class Passport implements Deletable {
     private Person person;
     private Boolean isDeleted = false;
 
-    public Passport(Long id, Long serial, Long number, Locate locateBirth, Locate locateRegistration, Person person) {
+    public Passport(Long id, Long serial, Long number, Locate locateBirth, Locate locateRegistration) {
         this.id = id;
         this.serial = serial;
         this.number = number;
         this.locateBirth = locateBirth;
         this.locateRegistration = locateRegistration;
-        this.person = person;
     }
 
     public Long getId() {

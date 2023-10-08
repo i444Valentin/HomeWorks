@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 public class Contract implements Deletable {
     private Long id;
-    private String position;
+    private Position position;
     private String level;
     private Long salary;
     private Employee employee;
@@ -19,17 +19,15 @@ public class Contract implements Deletable {
     private Boolean isDeleted = false;
 
 
-    public Contract(Long id, String position, String level, Long salary, Employee employee, LocalDate attemptDate, Employee hirer) throws NoSuchFieldException {
+    public Contract() {
+    }
+
+    public Contract(Long id, Position position, String level, Long salary, LocalDate attemptDate) {
         this.id = id;
         this.position = position;
         this.level = level;
         this.salary = salary;
-        this.employee = employee;
         this.attemptDate = attemptDate;
-        if (hirer.getPosition().equals(this.getClass().getDeclaredField("hirer").getAnnotation(RequiredPosition.class).value())){
-            this.hirer = hirer;
-        }else throw new RuntimeException("Для созздания договора работник должен являться работодателем.");
-
     }
 
     public Long getId() {
@@ -40,11 +38,11 @@ public class Contract implements Deletable {
         this.id = id;
     }
 
-    public String getPosition() {
+    public Position getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 
@@ -85,7 +83,13 @@ public class Contract implements Deletable {
     }
 
     public void setHirer(Employee hirer) {
-        this.hirer = hirer;
+        try {
+            if (hirer.getPosition().equals(this.getClass().getDeclaredField("hirer").getAnnotation(RequiredPosition.class).value())) {
+                this.hirer = hirer;
+            } else throw new RuntimeException("Для создания договора работник должен являться работодателем.");
+        }catch (NoSuchFieldException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -95,7 +99,7 @@ public class Contract implements Deletable {
                 ", position='" + position + '\'' +
                 ", level='" + level + '\'' +
                 ", salary=" + salary +
-                ", employee=" + employee +
+                ", employee=" + employee.getId() +
                 ", attemptDate=" + attemptDate +
                 ", hirer=" + hirer.getId() +
                 '}';
