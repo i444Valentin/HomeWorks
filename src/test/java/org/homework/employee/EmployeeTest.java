@@ -80,4 +80,38 @@ class EmployeeTest {
 
     }
 
+    @Test
+    void try_delete_passport(){
+        Exception exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            passport.delete();
+            passport.delete();
+        });
+
+        String actual = "Документ уже удален!";
+        Assertions.assertTrue(actual.contains(exception.getMessage()));
+    }
+
+    @Test
+    void try_delete_contract(){
+        Exception exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            passport.delete();
+            passport.delete();
+        });
+
+        String actual = "Документ уже удален!";
+        Assertions.assertTrue(actual.contains(exception.getMessage()));
+    }
+
+    @Test
+    void try_restore_passport(){
+            passport.delete();
+            passport.restore();
+    }
+
+    @Test
+    void try_restore_contract(){
+            contract1.delete();
+            contract1.restore();
+    }
+
 }
