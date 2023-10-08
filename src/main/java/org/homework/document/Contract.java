@@ -107,12 +107,15 @@ public class Contract implements Deletable {
 
     @Override
     public void delete() {
-        isDeleted = true;
+        if (isDeleted) throw new RuntimeException("Документ уже удален!");
+        else isDeleted = true;
     }
 
     @Override
     public void restore() {
-        isDeleted = false;
+        if (isDeleted) isDeleted = false;
+        else throw new RuntimeException("Документ не был удален!");
+
     }
 
 }
