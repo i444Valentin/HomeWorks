@@ -102,15 +102,13 @@ public class Contract implements Deletable {
     }
 
     @Override
-    public void safeDelete() {
+    public void delete() {
+        isDeleted = true;
     }
 
     @Override
     public void restore() {
+        isDeleted = false;
     }
 
-    @Override
-    public void delete() {
-
-    }
 }
