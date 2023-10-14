@@ -1,11 +1,10 @@
 package сontainers;
 
-import packages.Package;
-
 import java.util.List;
 
-public interface Fillable {
-    void addPack(Package pack);
+public interface Fillable<P> {
+    void addPack(P pack);
     void wrap();
-    void addAllPacks(List<? extends Package> packages);
+    void addAllPacks(List<P> packages);
+    void addAllPackWithTruncate(List<P> packages);
 }
