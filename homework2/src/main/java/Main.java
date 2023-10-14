@@ -21,9 +21,9 @@ public class Main {
         filler.prepareContent(pack);
         filler.fill();
         Filler filler1 = new WaterFiller();
-        Filler fillL = new LiquidFiller();
-        fillL.prepareContent(pack,2,12);
-        fillL.fill(75);
+        LiquidFiller fillL = new LiquidFiller();
+        fillL.prepareContent(pack,2,7);
+        fillL.fill(101);
         BaseContainer<BottleOfCocaCola> container = new BottleContainer<>(new Size(10,10,10),12,Material.METAL);
         container.addPack(pack);
         container.addAllPacks(new ArrayList<>(Arrays.asList(pack,pack,pack,pack,pack,pack,pack,pack,pack,pack,pack)));

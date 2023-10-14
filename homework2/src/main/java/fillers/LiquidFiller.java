@@ -12,6 +12,7 @@ public class LiquidFiller extends Filler {
 
     @Override
     public void prepareContent(Pack pack) {
+
         throw new RuntimeException("Не поддерживается наполнение для этого типа упаковки");
     }
 
