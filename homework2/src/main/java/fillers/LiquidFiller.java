@@ -7,13 +7,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Базовый заполнитель жидкостями. Наследуется от Заполнителя.
+ * Реализует заполнение упаковок жидкостями
+ */
 public class LiquidFiller extends Filler {
-    PackLiquid packageLiquid;
+    PackLiquid packLiquid;
+
+    public LiquidFiller(PackLiquid packLiquid) {
+        this.packLiquid = packLiquid;
+    }
+
+    public LiquidFiller() {
+    }
 
     @Override
-    public void prepareContent(Pack pack) {
-
-        throw new RuntimeException("Не поддерживается наполнение для этого типа упаковки");
+    public  void prepareContent(Pack pack) {
+        throw new RuntimeException("Заполнитель жидкостью не поддерживает данный метод заполнения");
     }
 
     public void prepareContent(PackLiquid packLiquid, int minV, int maxV) {
@@ -23,21 +33,21 @@ public class LiquidFiller extends Filler {
         for (int i =0; i < volume; i++){
             content.add(random.nextInt(minV,maxV));
         }
-        this.packageLiquid = packLiquid;
+        this.packLiquid = packLiquid;
     }
 
 
     @Override
     public void fill() {
-        if(packageLiquid == null){
+        if(packLiquid == null){
             throw new RuntimeException("Наполнитель не был готов");
         }
-        packageLiquid.setContent(content);
+        packLiquid.setContent(content);
     }
 
     @Override
     public void fill(Integer percent) {
-        if(packageLiquid == null){
+        if(packLiquid == null){
             throw new RuntimeException("Наполнитель не был готов");
         }else if (percent > 100){
             throw new RuntimeException("Invalid value of percent");
@@ -47,7 +57,7 @@ public class LiquidFiller extends Filler {
         for (int i = 0; i< countElements; i++){
             temp.add(content.get(i));
         }
-        packageLiquid.setContent(temp);
+        packLiquid.setContent(temp);
     }
 
 }

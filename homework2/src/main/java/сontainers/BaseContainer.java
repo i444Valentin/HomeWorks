@@ -1,5 +1,6 @@
 package сontainers;
 
+import enums.Material;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;

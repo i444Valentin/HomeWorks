@@ -4,31 +4,31 @@ import fillers.LiquidFiller;
 import fillers.WaterFiller;
 import packs.BottleOfCocaCola;
 import packs.BottleOfWater;
-import packs.Pack;
 import utils.Size;
 import сontainers.BaseContainer;
 import сontainers.BottleContainer;
-import сontainers.Fillable;
-import сontainers.Material;
+import enums.Material;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
         BottleOfCocaCola pack = new BottleOfCocaCola(2,5,2, "CocaCola",Material.GLASS);
+        BottleOfWater bottleOfWater = new BottleOfWater(4,5,3,"Aqua",Material.PLASTIC);
         Filler filler = new CocaColaFiller();
         filler.prepareContent(pack);
         filler.fill();
         Filler filler1 = new WaterFiller();
+        filler1.prepareContent(bottleOfWater);
+        filler1.fill();
         LiquidFiller fillL = new LiquidFiller();
-        fillL.prepareContent(pack,2,7);
-        fillL.fill(101);
+        fillL.prepareContent(pack,2,5);
+        fillL.fill(100);
         BaseContainer<BottleOfCocaCola> container = new BottleContainer<>(new Size(10,10,10),12,Material.METAL);
         container.addPack(pack);
-        container.addAllPacks(new ArrayList<>(Arrays.asList(pack,pack,pack,pack,pack,pack,pack,pack,pack,pack,pack)));
-        System.out.println(container.getPacks().get(0).getVolume());
-        System.out.println(pack.getContent());
-
+        container.addAllPacks(Arrays.asList(pack,pack,pack,pack,pack,pack,pack,pack,pack,pack,pack));
+        System.out.println(bottleOfWater.getVolume());
+        System.out.println(bottleOfWater.getContent());
+        container.wrap();
     }
 }

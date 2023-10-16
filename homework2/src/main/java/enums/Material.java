@@ -1,4 +1,4 @@
-package сontainers;
+package enums;
 
 public enum Material {
     PLASTIC, GLASS, WOOD, POLYETHYLENE, METAL

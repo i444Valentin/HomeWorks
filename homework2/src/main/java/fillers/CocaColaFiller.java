@@ -4,6 +4,14 @@ import packs.BottleOfCocaCola;
 import packs.Pack;
 
 public class CocaColaFiller extends LiquidFiller{
+
+    public CocaColaFiller(BottleOfCocaCola bottle){
+        packLiquid = bottle;
+    }
+    public CocaColaFiller(){
+
+    }
+
     @Override
     public void prepareContent(Pack pack) {
         prepareContent((BottleOfCocaCola) pack);

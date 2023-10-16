@@ -1,6 +1,6 @@
 package packs;
 
-import сontainers.Material;
+import enums.Material;
 
 public class BottleOfWater extends PackLiquid {
     public BottleOfWater(Integer sizeW, Integer sizeH, Integer sizeD, Material material) {

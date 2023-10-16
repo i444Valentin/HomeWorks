@@ -3,7 +3,7 @@ package packs;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import сontainers.Material;
+import enums.Material;
 
 import java.util.List;
 

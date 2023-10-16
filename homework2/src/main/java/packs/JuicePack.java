@@ -1,7 +1,7 @@
 package packs;
 
 import lombok.*;
-import сontainers.Material;
+import enums.Material;
 
 @Getter
 @Setter

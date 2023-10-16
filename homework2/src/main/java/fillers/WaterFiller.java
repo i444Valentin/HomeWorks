@@ -3,7 +3,15 @@ package fillers;
 import packs.BottleOfWater;
 import packs.Pack;
 
+
 public class WaterFiller extends LiquidFiller{
+
+    public WaterFiller(BottleOfWater bottle) {
+        this.packLiquid = bottle;
+    }
+
+    public WaterFiller() {
+    }
 
     @Override
     public void prepareContent(Pack pack) {
