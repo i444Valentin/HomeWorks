@@ -4,8 +4,14 @@ import enums.Material;
 import lombok.NonNull;
 import utils.Size;
 
+import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Представляет собой контейнер для бутылок
+ * Этот контейнер обычно имеет слоты для упаковки бутылок
+ * @param <P> - тип бутылки (бутылка Кока-колы, воды и т.д.)
+ */
 public class BottleContainer<P> extends BaseContainer<P> {
 
     public BottleContainer(Integer sizeW, Integer sizeH, Integer sizeD, Integer maxCount, Material material) {
@@ -46,7 +52,7 @@ public class BottleContainer<P> extends BaseContainer<P> {
     }
 
     @Override
-    public void addAllPackWithTruncate(List<P> packages) {
+    public void addAllPackWithTruncate(ArrayList<P> packages) {
         if (isWrapped)
             throw new RuntimeException("Контейнер запечатан");
         int startTruncate = getMaxCount();
