@@ -12,7 +12,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "packs")
 public abstract class BaseContainer<P> implements Fillable<P> {
     private final Integer sizeW;
     private final Integer sizeH;
@@ -56,6 +56,13 @@ public abstract class BaseContainer<P> implements Fillable<P> {
 
     public final Boolean makeFromOneOrManyMFR() {
         return isOneMFR = !isOneMFR;
+    }
+
+    @Override
+    public void wrap() {
+        if (packs.size() == getMaxCount()){
+            isWrapped = true;
+        }
     }
 
 }

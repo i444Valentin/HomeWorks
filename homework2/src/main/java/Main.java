@@ -46,14 +46,16 @@ public class Main {
         fillL.fill(100);
         //Создаем контейнер бутылок с кока-колой
 
-        BaseContainer<BottleOfCocaCola> container = new BottleContainer<>(new Size(10,10,10),10,Material.METAL);
+        BaseContainer<BottleOfCocaCola> container = new BottleContainer<>(new Size(10,10,10),12,Material.METAL);
 
         container.addPack(pack);
-        container.addAllPackWithTruncate(new ArrayList<>(Arrays.asList(pack,pack,pack,pack,pack,pack,pack,pack,pack,pack,pack)));
+        container.addAllPacks(new ArrayList<>(Arrays.asList(pack,pack,pack,pack,pack,pack,pack,pack,pack,pack,pack)));
 
+        container.wrap();
         System.out.println(bottleOfWater.getVolume());
         System.out.println(bottleOfWater.getContent());
         System.out.println(container);
-        container.wrap();
+
+
     }
 }

@@ -42,13 +42,6 @@ public class BottleContainer<P> extends BaseContainer<P> {
     }
 
     @Override
-    public void wrap() {
-        if (packs.size() == getMaxCount()){
-            isWrapped = true;
-        }
-    }
-
-    @Override
     public void addAllPacks(List<P> packages) {
         if (packages.size() > getMaxCount())
             throw new RuntimeException("Количество упаковок превышает количество, которое может вместить контейнер");
