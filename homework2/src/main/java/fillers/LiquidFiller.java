@@ -12,10 +12,11 @@ import java.util.Random;
  * Реализует заполнение упаковок жидкостями
  */
 public class LiquidFiller extends Filler {
-    PackLiquid packLiquid;
+    protected PackLiquid packLiquid;
 
+    //Конструктор для создания Заполнителя с подготовленной упаковкой
     public LiquidFiller(PackLiquid packLiquid) {
-        this.packLiquid = packLiquid;
+        prepareContent(packLiquid);
     }
 
     public LiquidFiller() {
@@ -26,6 +27,13 @@ public class LiquidFiller extends Filler {
         throw new RuntimeException("Заполнитель жидкостью не поддерживает данный метод заполнения");
     }
 
+    /**
+     * Подготовавливает содержимое для заполнения упаковки
+     *
+     * @param packLiquid - упаковка для жидкости
+     * @param minV - минимальное число, имитирующее содержимое
+     * @param maxV - максимальное число, имитирующее содержимое
+     */
     public void prepareContent(PackLiquid packLiquid, int minV, int maxV) {
         int volume = packLiquid.getVolume();
         Random random = new Random();
@@ -59,5 +67,4 @@ public class LiquidFiller extends Filler {
         }
         packLiquid.setContent(temp);
     }
-
 }

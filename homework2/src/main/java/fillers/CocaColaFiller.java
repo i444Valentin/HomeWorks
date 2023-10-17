@@ -3,6 +3,9 @@ package fillers;
 import packs.BottleOfCocaCola;
 import packs.Pack;
 
+/**
+ * Класс заполнителя упаковки кока-колой
+ */
 public class CocaColaFiller extends LiquidFiller{
 
     public CocaColaFiller(BottleOfCocaCola bottle){

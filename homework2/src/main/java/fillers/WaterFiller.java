@@ -3,11 +3,13 @@ package fillers;
 import packs.BottleOfWater;
 import packs.Pack;
 
-
+/**
+ * Класс заполнителя упаковок водой
+ */
 public class WaterFiller extends LiquidFiller{
 
     public WaterFiller(BottleOfWater bottle) {
-        this.packLiquid = bottle;
+        prepareContent(bottle);
     }
 
     public WaterFiller() {
@@ -18,7 +20,7 @@ public class WaterFiller extends LiquidFiller{
         prepareContent((BottleOfWater) pack);
     }
 
-    public void prepareContent(BottleOfWater bottleOfWater) {
+    private void prepareContent(BottleOfWater bottleOfWater) {
         super.prepareContent(bottleOfWater,-2,2);
     }
 

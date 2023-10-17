@@ -2,6 +2,9 @@ package packs;
 
 import enums.Material;
 
+/**
+ * Класс бутылки Кока-колы
+ */
 public class BottleOfCocaCola extends PackLiquid {
     public BottleOfCocaCola(Integer sizeW, Integer sizeH, Integer sizeD, Material material) {
         super(sizeW, sizeH, sizeD, material);
