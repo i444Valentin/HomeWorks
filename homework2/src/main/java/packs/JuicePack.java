@@ -10,6 +10,7 @@ import utils.Size;
  */
 @Getter
 @Setter
+@ToString(callSuper = true)
 public class JuicePack extends PackLiquid {
     private String fruit;
 

@@ -29,9 +29,9 @@ public class Main {
         BottleOfCocaCola pack = new BottleOfCocaCola(2,5,2, "CocaCola",Material.GLASS);
         BottleOfWater bottleOfWater = new BottleOfWater(5,5,8,"Aqua",Material.PLASTIC);
 
-        Size juicePackSize = Sizes.fromVolume(1000,20);
-        JuicePack juicePack = new JuicePack(juicePackSize,"Dobryi",Material.POLYETHYLENE,"");
-        System.out.println(juicePack.getVolume());
+        Size juicePackSize = Sizes.fromVolume(1280,20);
+        JuicePack juicePack = new JuicePack(juicePackSize,"Dobryi",Material.POLYETHYLENE,"Apple");
+        System.out.println(juicePack);
         //создаем заполнитель кока-колой
         Filler filler = new CocaColaFiller();
         filler.prepareContent(pack);

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import enums.Material;
+import lombok.ToString;
 import utils.Size;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Getter
 @Setter
+@ToString(exclude = "content")
 public abstract class Pack {
     private final Integer sizeW;
     private final Integer sizeH;
