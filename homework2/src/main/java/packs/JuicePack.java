@@ -2,6 +2,7 @@ package packs;
 
 import lombok.*;
 import enums.Material;
+import utils.Size;
 
 
 /**
@@ -17,4 +18,8 @@ public class JuicePack extends PackLiquid {
         this.fruit = fruit;
     }
 
+    public JuicePack(Size size, String mfr, Material material, String fruit) {
+        super(size, mfr, material);
+        this.fruit = fruit;
+    }
 }

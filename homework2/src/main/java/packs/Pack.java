@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import enums.Material;
+import utils.Size;
 
 import java.util.List;
 
@@ -28,6 +29,14 @@ public abstract class Pack {
         this.sizeW = sizeW;
         this.sizeH = sizeH;
         this.sizeD = sizeD;
+        this.mfr = mfr;
+        this.material = material;
+    }
+
+    public Pack(Size size, String mfr, Material material) {
+        this.sizeW = size.getSizeW();
+        this.sizeH = size.getSizeH();
+        this.sizeD = size.getSizeD();
         this.mfr = mfr;
         this.material = material;
     }

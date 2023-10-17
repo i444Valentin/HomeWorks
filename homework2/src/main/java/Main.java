@@ -4,7 +4,9 @@ import fillers.LiquidFiller;
 import fillers.WaterFiller;
 import packs.BottleOfCocaCola;
 import packs.BottleOfWater;
+import packs.JuicePack;
 import utils.Size;
+import utils.Sizes;
 import сontainers.BaseContainer;
 import сontainers.BottleContainer;
 import enums.Material;
@@ -12,11 +14,24 @@ import enums.Material;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Здесь происходит самое интересное
+ * Да, здесь не опробованы другие методы создания (через конструктор, как например
+ * у заполнителей)
+ *
+ * Еще можно создать дополнительные
+ * классы-упаковки (наследуя от класса Pack или PackLiquid),
+ * ну или контейнеры
+ */
 public class Main {
     public static void main(String[] args) {
         //создаем две упаковки
         BottleOfCocaCola pack = new BottleOfCocaCola(2,5,2, "CocaCola",Material.GLASS);
         BottleOfWater bottleOfWater = new BottleOfWater(5,5,8,"Aqua",Material.PLASTIC);
+
+        Size juicePackSize = Sizes.fromVolume(1000,20);
+        JuicePack juicePack = new JuicePack(juicePackSize,"Dobryi",Material.POLYETHYLENE,"");
+        System.out.println(juicePack.getVolume());
         //создаем заполнитель кока-колой
         Filler filler = new CocaColaFiller();
         filler.prepareContent(pack);

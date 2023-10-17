@@ -3,6 +3,7 @@ package packs;
 import lombok.Getter;
 import lombok.Setter;
 import enums.Material;
+import utils.Size;
 
 import java.util.ArrayList;
 
@@ -27,6 +28,12 @@ public class PackLiquid extends Pack {
     public PackLiquid(Integer sizeW, Integer sizeH, Integer sizeD, String mfr, Material material) {
         super(sizeW, sizeH, sizeD, mfr, material);
         volume = sizeW*sizeH*sizeD;
+        content = new ArrayList<Integer>(volume);
+    }
+
+    public PackLiquid(Size size, String mfr, Material material) {
+        super(size, mfr, material);
+        volume = size.getSizeW()*size.getSizeH()*size.getSizeD();
         content = new ArrayList<Integer>(volume);
     }
 }
