@@ -4,6 +4,7 @@ import enums.Material;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import lombok.ToString;
 import utils.Size;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@ToString
 public abstract class BaseContainer<P> implements Fillable<P> {
     private final Integer sizeW;
     private final Integer sizeH;
